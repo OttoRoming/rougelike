@@ -1,5 +1,6 @@
 #include "config.h"
 #include "game.h"
+#include "map.h"
 #include "player.h"
 #include <raylib.h>
 
@@ -10,7 +11,7 @@ int main() {
       .offset = {(float)WINDOW_WIDTH / 2, (float)WINDOW_HEIGHT / 2},
       .target = {0, 0},
       .rotation = 0,
-      .zoom = 32,
+      .zoom = 16,
   };
 
   Player_t player = {
@@ -21,6 +22,7 @@ int main() {
   Game_t game = {
       .camera = camera,
       .player = player,
+      .map = new_map(),
   };
 
   while (!WindowShouldClose()) {

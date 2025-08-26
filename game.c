@@ -1,5 +1,6 @@
 #include "game.h"
 #include "config.h"
+#include "map.h"
 #include "player.h"
 #include <raylib.h>
 
@@ -19,11 +20,13 @@ void game_update(Game_t *game) {
   BeginMode2D(game->camera);
 
   // Draw game world
-  player_update(&game->player);
+  map_update(&game->map);
+  player_update(&game->player, &game->camera);
 
   EndMode2D();
 
   // Draw HUD
+  DrawFPS(0, 0);
 
   EndDrawing();
 }
