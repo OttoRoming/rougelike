@@ -3,28 +3,27 @@
 #include "player.h"
 #include <raylib.h>
 
-
 void draw_background_gradient() {
-    Rectangle window_rectangle = {0, 0, WINDOW_WIDTH, WINDOW_HEIGHT};
+  Rectangle window_rectangle = {0, 0, WINDOW_WIDTH, WINDOW_HEIGHT};
 
-    DrawRectangleGradientEx(window_rectangle, LIGHTGRAY, LIGHTGRAY, LIGHTGRAY, DARKGRAY);
+  DrawRectangleGradientEx(window_rectangle, LIGHTGRAY, LIGHTGRAY, LIGHTGRAY,
+                          DARKGRAY);
 }
 
-
 void game_update(Game_t *game) {
-    BeginDrawing();
+  BeginDrawing();
 
-    // Draw background
-    draw_background_gradient();
+  // Draw background
+  draw_background_gradient();
 
-    BeginMode2D(game->camera);
+  BeginMode2D(game->camera);
 
-    // Draw game world
-    player_update(&game->player);
+  // Draw game world
+  player_update(&game->player);
 
-    EndMode2D();
+  EndMode2D();
 
-    // Draw HUD
+  // Draw HUD
 
-    EndDrawing();
+  EndDrawing();
 }
